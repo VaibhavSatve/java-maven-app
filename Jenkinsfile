@@ -8,7 +8,7 @@ pipeline {
             steps {
                 script {
                     echo 'Testing the Application'
-                    echo "Executing the pipeline for the Current Branch $BRANCH_NAME"
+                    echo "Executing the pipeline for the Main Branch"
                 }
             }
         }
