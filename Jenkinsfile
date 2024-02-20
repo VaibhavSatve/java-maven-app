@@ -13,11 +13,6 @@ pipeline {
             }
         }
         stage("build jar") {
-            when {
-                expression {
-                    env.BRANCH_NAME == 'main'
-                }
-            }
             steps {
                 script {
                     echo "Building the Application"
@@ -26,11 +21,6 @@ pipeline {
             }
         }
         stage("build image") {
-            when {
-                expression {
-                    env.BRANCH_NAME == 'main'
-                }
-            }
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
@@ -43,11 +33,6 @@ pipeline {
             }
         }
         stage("deploy") {
-            when {
-                expression {
-                    env.BRANCH_NAME == 'main'
-                }
-            }
             steps {
                 script {
                     echo "Deploying Application"
